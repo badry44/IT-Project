@@ -16,6 +16,7 @@ if (empty($FirstArr)&&empty($ThirdArr))
 	$n  = QueryThis($query1);
 
 	$Ruselt="The Accout has been created successfully";
+	
 }
 else
 {

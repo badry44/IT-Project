@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html>
 <head>
@@ -18,13 +19,24 @@
 			
 				<div class="head"></div>
 				<div class="top">
-					<a href="#">Home</a>
+					<a href="#"></a>
 					<a href="#">New Items</a>
 					<a href="#">Special Offers</a>
 				</div>
 				<div class="sub">
-					<a href="Html/CreateAccount.html">Sign Up</a>
-					<a href="Html/LoginAccount.html">Login</a>
+				<?php 
+				session_start();
+					if(isset($_SESSION['UserName']) && !empty($_SESSION['UserName'])) {
+						echo "<a href='#'>".$_SESSION['UserName']."</a>";
+						echo "<a href='php/Logout.php'>Log Out</a>";
+ 
+						}
+					else
+					{
+						echo "<a href='Html/CreateAccount.html'>Sign Up</a>
+					<a href='Html/LoginAccount.html'>Login</a>";
+					}
+				?>
 				</div>
 			</div>
 		</div>

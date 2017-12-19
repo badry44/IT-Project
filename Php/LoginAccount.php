@@ -7,7 +7,7 @@ $Result = "nono";
 $arr = QueryThis($query);
 if (empty($arr))
 {
-	$Result = "<div><h1><center>Create Account</center></h1></div>
+	$Result = "<div><h1><center>Login</center></h1></div>
 	<div><h1 style = 'color : red;'><center> UserName Or Password is wrong  </center></h1></div>
 	<center>
 	<form method='Post' action='../Php/LoginAccount.php' name='CreateAccountForm'>
@@ -19,8 +19,15 @@ if (empty($arr))
 }
 else
 {
-	;
-	$Result="<div><h1 style = 'color : red;'><center>Login Done Successfully</center></h1></div>";
+	session_start();
+	foreach ($arr as $var ) {
+		$_SESSION["UserName"] = $var["UserName"];
+		$_SESSION["UserType"] = $var["UserType"];
+	}
+	
+	$Result="<div><h1 style = 'color : red;'><center>Login Done Successfully you will be redirected to home page </center></h1></div>";
+	
+	header( "refresh:3;url=../index.php" );
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
