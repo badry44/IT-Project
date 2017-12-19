@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
+	<title> Create Accout</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<link rel="StyleSheet" href="../css/style.css" type="text/css" />
+	<script type="text/javascript">	
+	function ValidateEmail()   
+	{  
+ 		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(CreateAccountForm.Email.value))  
+  		{  
+    	return (true)  
+  		}  
+    	alert("You have entered an invalid email address!")  
+    	return (false);
+}  
+	function FormValdition()
+	{
+		if (document.CreateAccountForm.UserName.value=="")
+		{
+
+			alert("UserName Can't Be Empty");
+			return false;
+		}
+		if (document.CreateAccountForm.password.value=="")
+		{
+			alert("Password Can't Be Empty");
+			return false;
+		}
+		if (document.CreateAccountForm.Email.value=="")
+		{
+
+			alert("Email Can't Be Empty");
+			return false;
+		}
+		if (!ValidateEmail())
+		{
+			return false;
+		}
+		var x=document.forms["CreateAccountForm"]["age"].value;
+		if (isNaN(x)) 
+  		{
+    		alert("invalid Age");
+    		return false;
+  		}
+  		if (document.CreateAccountForm.age.value=="")
+  		{
+  			alert("Age is Empty");
+  			return;
+  		}
+		document.forms['CreateAccountForm'].submit();
+		return true;
+		
+		
+	}
+	</script>
+</head>
+<body>
+<div id="bodyWrap">
+	<div class="pageWrapper">
+		<div id="header">
+			<div id="logo">
+				<h1>Logo &trade;</h1>
+			</div>
+			<div id="heading">
+				<div class="head"></div>
+				<div class="top">
+					<a href="http://localhost/ITProject">Home</a>
+					<a href="#">New Items</a>
+					<a href="#">Special Offers</a>
+				</div>
+				<div class="sub">
+					<a href="#">My Account</a>
+					<a href="#">Logout</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="pageWrapper" id="main">
+	<div><h1><center>Create Account</center></h1></div>
+	<center>
+	<form method="Post" action="../Php/CreateAccout.php" name="CreateAccountForm">
+		<h4 style="">User Name</h4><input type="text" name="UserName">
+		<h4>Password</h4><input type="password" name="password">
+		<h4>Age</h4><input type="text" name="age">
+		<h4>Email</h4><input type="text" name="Email"><br><br>
+		<input type="button" name="Create" value="Create Account" onclick="FormValdition();">
+	</form>
+	</center>
+	</div>
+</div>
+</body>
+</html>
